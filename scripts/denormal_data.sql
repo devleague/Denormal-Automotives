@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS car_models
   model_code character varying(125) NOT NULL,
   model_title character varying(125) NOT NULL,
   year integer NOT NULL
-)
+);
 
 INSERT INTO car_models VALUES
 ('ACURA','Acura','CL_MODELS','CL Models (4)',2000),
