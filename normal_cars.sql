@@ -23,8 +23,15 @@
 --   INNER JOIN makes ON (makes.make_code = car_models.make_code)
 -- ORDER BY car_models.year ASC;
 
--- 7
+-- -- 7
+-- SELECT make_title
+-- FROM makes;
 
+-- 8
+SELECT DISTINCT model_title
+FROM models
+  INNER JOIN makes ON (models.make_id = makes.id)
+WHERE makes.make_code LIKE '%VOLKS%';
 
 
 -- INSERT INTO uniqueCars (make_id, model_id, year_id)
