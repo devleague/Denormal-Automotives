@@ -28,16 +28,16 @@
 -- FROM makes;
 
 -- 8
-SELECT DISTINCT model_title
+-- SELECT DISTINCT model_title
+-- FROM models
+--   INNER JOIN makes ON (models.make_id = makes.id)
+-- WHERE makes.make_code LIKE '%VOLKS%';
+
+-- 9
+SELECT makes.make_code, models.model_code, models.model_title, models.year
 FROM models
   INNER JOIN makes ON (models.make_id = makes.id)
-WHERE makes.make_code LIKE '%VOLKS%';
+WHERE makes.make_code LIKE '%LAM%';
 
 
--- INSERT INTO uniqueCars (make_id, model_id, year_id)
--- SELECT makes.id AS makes_id, models.id AS model_id, years.id AS year_id
--- FROM car_models
---   RIGHT OUTER JOIN makes ON (car_models.make_code = makes.make)
---   RIGHT OUTER JOIN models ON (car_models.model_code = models.code)
---   RIGHT OUTER JOIN years ON (car_models.year = years.year)
 
