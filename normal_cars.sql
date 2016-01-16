@@ -34,10 +34,14 @@
 -- WHERE makes.make_code LIKE '%VOLKS%';
 
 -- 9
-SELECT makes.make_code, models.model_code, models.model_title, models.year
+-- SELECT makes.make_code, models.model_code, models.model_title, models.year
+-- FROM models
+--   INNER JOIN makes ON (models.make_id = makes.id)
+-- WHERE makes.make_code LIKE '%LAM%';
+
+-- 10
+SELECT models.model_code, models.model_title, models.year, makes.make_code AS "Make Code", makes.make_title AS "Make Title"
 FROM models
   INNER JOIN makes ON (models.make_id = makes.id)
-WHERE makes.make_code LIKE '%LAM%';
-
-
+WHERE models.year BETWEEN 2010 AND 2015;
 
