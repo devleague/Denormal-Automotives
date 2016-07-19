@@ -8,7 +8,7 @@ To run sql statements from an external file, use the `\i [filepath]` command.
 
 ## Denormal Cars
 
-Write your queries in `denormal.sql` when instructed to.
+Write your queries in `denormal_cars.sql` when instructed to.
 
 1. Create a new postgres user named `denormal_user`
 1. Create a new database named `denormal_cars` owned by `denormal_user`
