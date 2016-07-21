@@ -13,6 +13,10 @@ CREATE DATABASE denormal_cars WITH OWNER denormal_user;
 SELECT COUNT(DISTINCT make_title)
   FROM car_models;
 
+SELECT COUNT(DISTINCT model_title)
+  FROM car_models
+  WHERE make_code = 'VOLKS';
+
 SELECT COUNT(*)
   FROM car_models
   WHERE make_code = 'LAM';
