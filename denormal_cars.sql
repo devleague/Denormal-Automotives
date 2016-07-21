@@ -10,3 +10,7 @@ CREATE DATABASE denormal_cars WITH OWNER denormal_user;
 
 -- Run the provided scripts/denormal_data.sql script on the denormal_cars database
 \i scripts/denormal_data.sql;
+
+\dS car_models;
+SELECT DISTINCT make_title from car_models;
+SELECT COUNT(DISTINCT make_title) FROM car_models;
