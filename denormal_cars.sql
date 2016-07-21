@@ -24,3 +24,7 @@ SELECT COUNT(DISTINCT model_title) from car_models WHERE make_code = 'VOLKS';
 -- Create a query to list all make_code, model_code, model_title, and year from car_models where the make_code is 'LAM' (should have 136 rows)
 SELECT make_code, model_code, model_title, year from car_models WHERE make_code = 'LAM';
 SELECT COUNT(make_code) from car_models WHERE make_code = 'LAM';
+
+ -- Create a query to list all fields from all car_models in years between 2010 and 2015 (should have 7884 rows)
+SELECT * from car_models WHERE year BETWEEN 2010 AND 2015;
+SELECT COUNT(*) from car_models WHERE year BETWEEN 2010 AND 2015;
