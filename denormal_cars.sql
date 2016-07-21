@@ -20,3 +20,9 @@ SELECT COUNT(DISTINCT model_title)
 SELECT COUNT(*)
   FROM car_models
   WHERE make_code = 'LAM';
+
+SELECT COUNT(*)
+  FROM car_models
+  WHERE year
+  BETWEEN 2010
+  AND 2015;
