@@ -29,7 +29,7 @@ CREATE TABLE cars (
   id SERIAL PRIMARY KEY,
   make_id INT REFERENCES makes(id),
   model_id INT REFERENCES models(id),
-  year_value INT
+  year_id INT REFERENCES year(id)
 );
 
 INSERT INTO makes
@@ -46,10 +46,44 @@ INSERT INTO models
     FROM car_models
     ORDER BY model_code ASC;
 
--- SELECT COUNT(DISTINCT model_title)
---   FROM car_models
---   WHERE make_code = 'VOLKS';
+INSERT INTO year
+  (year_value)
+  SELECT DISTINCT year
+    FROM car_models;
 
--- SELECT COUNT(*)
---   FROM car_models
---   WHERE make_code = 'LAM';
+INSERT INTO cars
+  (make_id,
+    model_id,
+    year_id)
+  SELECT makes.id AS make_id,
+    models.id AS model_id,
+    year.id AS year_id 
+  FROM car_models
+    INNER JOIN models
+    ON (models.model_code = car_models.model_code)
+    INNER JOIN makes
+    ON (makes.make_code = car_models.make_code)
+    INNER JOIN year
+    ON (year.year_value = car_models.year);
+
+SELECT DISTINCT model_title
+  FROM cars
+  INNER JOIN makes
+  ON (makes.id = cars.make_id)
+  INNER JOIN models
+  ON (models.id = cars.model_id)
+  WHERE makes.make_code = 'VOLKS';
+
+SELECT DISTINCT *
+  FROM cars
+  INNER JOIN makes
+  on (makes.id = cars.make_id)
+  INNER JOIN models
+  ON (models.id = cars.model_id)
+  WHERE make_code = 'LAM';
+
+SELECT DISTINCT *
+  FROM car_models
+  WHERE year
+  BETWEEN 2010
+  AND 2015;
