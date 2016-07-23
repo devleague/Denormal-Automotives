@@ -52,8 +52,8 @@ INSERT INTO year (year)
 
 INSERT INTO car_list (make_id, model_id, year_id)
   SELECT make.id AS make_id, model.id AS model_id, year.id AS year_id FROM car_models
-    INNER JOIN make on make.make_code = car_models.make_code
-    INNER JOIN model on model.model_code = car_models.model_code
+    INNER JOIN make on make.make_code = car_models.make_code AND make.make_title = car_models.make_title
+    INNER JOIN model on model.model_code = car_models.model_code AND model.model_title = car_models.model_title
     INNER JOIN year on year.year = car_models.year;
 
 -- Create a query to get a list of all make_title values in the car_models table. (should have 71 results)
