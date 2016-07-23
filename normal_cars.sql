@@ -11,6 +11,7 @@ CREATE DATABASE normal_cars WITH OWNER normal_user;
 -- Run the provided scripts/denormal_data.sql script on the normal_cars database
 \i scripts/denormal_data.sql;
 
+-- Generate the tables needed to accomplish your normalized schema
 CREATE TABLE IF NOT EXISTS make
 (
   id SERIAL PRIMARY KEY,
@@ -24,7 +25,6 @@ CREATE TABLE IF NOT EXISTS model
   model_code character varying(125) NOT NULL,
   model_title character varying(125) NOT NULL
 );
-
 
 CREATE TABLE IF NOT EXISTS year
 (
@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS car_list
   year_id INTEGER REFERENCES year(id)
 );
 
+-- Create queries to insert all of the data that was in the denormal_cars.car_models table, into the new normalized tables
 INSERT INTO make (make_code, make_title)
   SELECT DISTINCT make_code, make_title FROM car_models ORDER BY make_code ASC;
 
@@ -55,9 +56,5 @@ INSERT INTO car_list (make_id, model_id, year_id)
     INNER JOIN model on model.model_code = car_models.model_code
     INNER JOIN year on year.year = car_models.year;
 
-SELECT * FROM car_list;
-
-
--- SELECT * FROM make;
--- SELECT * FROM model;
--- SELECT * FROM year;
+-- Create a query to get a list of all make_title values in the car_models table. (should have 71 results)
+SELECT make_title FROM make;
