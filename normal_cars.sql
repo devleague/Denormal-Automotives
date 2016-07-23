@@ -58,3 +58,9 @@ INSERT INTO car_list (make_id, model_id, year_id)
 
 -- Create a query to get a list of all make_title values in the car_models table. (should have 71 results)
 SELECT make_title FROM make;
+
+-- Create a query to list all model_title values where the make_code is 'VOLKS' (should have 27 results)
+SELECT DISTINCT model.model_title AS model_title FROM car_list
+  INNER JOIN make on make.id = car_list.make_id
+  INNER JOIN model on model.id = car_list.model_id
+  WHERE make.make_code = 'VOLKS';
