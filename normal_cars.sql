@@ -71,3 +71,10 @@ SELECT DISTINCT make.make_code AS make_code, model.model_code AS model_code, mod
   INNER JOIN model on model.id = car_list.model_id
   INNER JOIN year on year.id = car_list.year_id
   WHERE make.make_code = 'LAM';
+
+-- Create a query to list all fields from all car_models in years between 2010 and 2015 (should have 7884 rows)
+SELECT DISTINCT make.make_code AS make_code, make.make_title AS make_title, model.model_code AS model_code, model.model_title AS model_title, year.year AS year FROM car_list
+  INNER JOIN make ON make.id = car_list.make_id
+  INNER JOIN model on model.id = car_list.model_id
+  INNER JOIN year on year.id = car_list.year_id
+  WHERE year.year BETWEEN 2010 AND 2015;
