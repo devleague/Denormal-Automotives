@@ -20,7 +20,7 @@ CREATE TABLE models (
   model_title VARCHAR(125) NOT NULL
 );
 
-CREATE TABLE year (
+CREATE TABLE years (
   id SERIAL PRIMARY KEY,
   year_value INT
 );
@@ -29,7 +29,7 @@ CREATE TABLE cars (
   id SERIAL PRIMARY KEY,
   make_id INT REFERENCES makes(id),
   model_id INT REFERENCES models(id),
-  year_id INT REFERENCES year(id)
+  year_id INT REFERENCES years(id)
 );
 
 INSERT INTO makes
@@ -46,7 +46,7 @@ INSERT INTO models
     FROM car_models
     ORDER BY model_code ASC;
 
-INSERT INTO year
+INSERT INTO years
   (year_value)
   SELECT DISTINCT year
     FROM car_models;
@@ -57,14 +57,14 @@ INSERT INTO cars
     year_id)
   SELECT makes.id AS make_id,
     models.id AS model_id,
-    year.id AS year_id 
+    years.id AS year_id 
   FROM car_models
     INNER JOIN models
     ON (models.model_code = car_models.model_code)
     INNER JOIN makes
     ON (makes.make_code = car_models.make_code)
-    INNER JOIN year
-    ON (year.year_value = car_models.year);
+    INNER JOIN years
+    ON (years.year_value = car_models.year);
 
 SELECT DISTINCT model_title
   FROM cars
@@ -77,13 +77,15 @@ SELECT DISTINCT model_title
 SELECT DISTINCT *
   FROM cars
   INNER JOIN makes
-  on (makes.id = cars.make_id)
+  ON (makes.id = cars.make_id)
   INNER JOIN models
   ON (models.id = cars.model_id)
-  WHERE make_code = 'LAM';
+  WHERE makes.make_code = 'LAM';
 
 SELECT DISTINCT *
-  FROM car_models
-  WHERE year
+  FROM cars
+  INNER JOIN years
+  ON (years.id = cars.year_id)
+  WHERE years.year_value
   BETWEEN 2010
   AND 2015;
