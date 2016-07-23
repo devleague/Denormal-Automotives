@@ -64,3 +64,10 @@ SELECT DISTINCT model.model_title AS model_title FROM car_list
   INNER JOIN make on make.id = car_list.make_id
   INNER JOIN model on model.id = car_list.model_id
   WHERE make.make_code = 'VOLKS';
+
+-- Create a query to list all make_code, model_code, model_title, and year from car_models where the make_code is 'LAM' (should have 136 rows)
+SELECT DISTINCT make.make_code AS make_code, model.model_code AS model_code, model.model_title AS model_title, year.year AS year FROM car_list
+  INNER JOIN make ON make.id = car_list.make_id
+  INNER JOIN model on model.id = car_list.model_id
+  INNER JOIN year on year.id = car_list.year_id
+  WHERE make.make_code = 'LAM';
