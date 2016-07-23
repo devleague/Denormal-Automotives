@@ -61,8 +61,10 @@ INSERT INTO cars
   FROM car_models
     INNER JOIN models
     ON (models.model_code = car_models.model_code)
+    AND (models.model_title = car_models.model_title)
     INNER JOIN makes
     ON (makes.make_code = car_models.make_code)
+    AND (makes.make_title = car_models.make_title)
     INNER JOIN years
     ON (years.year_value = car_models.year);
 
@@ -82,8 +84,12 @@ SELECT DISTINCT *
   ON (models.id = cars.model_id)
   WHERE makes.make_code = 'LAM';
 
-SELECT DISTINCT *
+SELECT *
   FROM cars
+  INNER JOIN makes
+  ON (makes.id = cars.make_id)
+  INNER JOIN models
+  ON (models.id = cars.model_id)
   INNER JOIN years
   ON (years.id = cars.year_id)
   WHERE years.year_value

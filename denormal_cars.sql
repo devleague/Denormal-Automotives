@@ -10,18 +10,18 @@ CREATE DATABASE denormal_cars WITH OWNER denormal_user;
 
 \dS car_models;
 
-SELECT COUNT(DISTINCT make_title)
+SELECT DISTINCT make_title
   FROM car_models;
 
-SELECT COUNT(DISTINCT model_title)
+SELECT DISTINCT model_title
   FROM car_models
   WHERE make_code = 'VOLKS';
 
-SELECT COUNT(*)
+SELECT *
   FROM car_models
   WHERE make_code = 'LAM';
 
-SELECT COUNT(*)
+SELECT *
   FROM car_models
   WHERE year
   BETWEEN 2010
