@@ -30,7 +30,7 @@ Write your queries in `normal_cars.sql` when instructed to.
 1. [bonus] Generate a diagram (somehow) in .png (or other) format, that of your normalized cars schema. (save and commit to this repo).
 1. In `normal_cars.sql` Create a query to generate the tables needed to accomplish your normalized schema, including any primary and foreign key constraints. Logical renaming of columns is allowed.
 1. Using the resources that you now possess, In `normal_cars.sql` Create queries to insert **all** of the data that was in the `denormal_cars.car_models` table, into the new normalized tables of the `normal_cars` database.
-1. In `normal_cars.sql` Create a query to get a list of all `make_title` values in the `car_models` table. Without any duplicate rows, this should have results.
+1. In `normal_cars.sql` Create a query to get a list of all `make_title` values in the `car_models` table. Without any duplicate rows, this should have 71 results.
 1. In `normal_cars.sql` Create a query to list all `model_title` values where the `make_code` is `'VOLKS'` Without any duplicate rows, this should have 27 results.
 1. In `normal_cars.sql` Create a query to list all `make_code`, `model_code`, `model_title`, and year from `car_models` where the `make_code` is `'LAM'`. Without any duplicate rows, this should have 136 rows.
 1. In `normal_cars.sql` Create a query to list all fields from all `car_models` in years between `2010` and `2015`. Without any duplicate rows, this should have 7884 rows.
