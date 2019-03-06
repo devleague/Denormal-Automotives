@@ -2,7 +2,7 @@
 
 ### DB Modeling Exercise in PostgreSQL
 
-To run sql statements from an external file, load them into DBeaver and run them from there.
+To run sql statements from an external file, load them into your RDBMS client and run the commands from there.
 
 ## Denormal Cars
 
