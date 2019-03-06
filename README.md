@@ -2,9 +2,7 @@
 
 ### DB Modeling Exercise in PostgreSQL
 
-When connecting to your pg database, connect from this project directory.
-
-To run sql statements from an external file, use the `\i [filepath]` command.
+To run sql statements from an external file, load them into your RDBMS client and run the commands from there.
 
 ## Denormal Cars
 
