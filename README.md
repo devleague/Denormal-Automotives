@@ -4,12 +4,16 @@
 
 To run sql statements from an external file, load them into your RDBMS client and run the commands from there.
 
+## Docker Setup
+
+Set your database name to be `denormal_cars`.
+Set your database username to be `denormal_user`.
+Set your database password to be `denormalPassword`.
+
 ## Denormal Cars
 
 Write your queries in `denormal_cars.sql` when instructed to.
 
-1. Create a new postgres user named `denormal_user`.
-1. Create a new database named `denormal_cars` owned by `denormal_user`.
 1. Run the provided `scripts/denormal_data.sql` script on the `denormal_cars` database.
 1. Inspect the table named `car_models` by running `\dS` and look at the data using some `SELECT` statements.
 1. In `denormal_cars.sql` Create a query to get a list of all `make_title` values in the `car_models` table. Without any duplicate rows, this should have 71 results.
@@ -24,6 +28,7 @@ Write your queries in `normal_cars.sql` when instructed to.
 
 1. Create a new postgres user named `normal_user`.
 1. Create a new database named `normal_cars` owned by `normal_user`.
+1. Connect to the new database by using `\c normal_cars` in your psql client.
 1. Run the provided `scripts/denormal_data.sql` script on the `normal_cars` database.
 1. Whiteboard your solution to normalizing the `denormal_cars` schema.
 1. [bonus] Generate a diagram (somehow) in .png (or other) format, that of your normalized cars schema. (save and commit to this repo).
